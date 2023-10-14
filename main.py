@@ -1,34 +1,17 @@
 import json
-import spacy
-from difflib import get_close_matches
-from spellchecker import SpellChecker
-
-# Cargar el modelo de lenguaje de spaCy
-nlp = spacy.load("es_core_news_sm")
 
 # Cargar datos desde el archivo JSON
 with open("padecimientos.json", "r") as json_file:
-    data = json.load(json_file)["padecimientos"]  # Accede a la clave "padecimientos"
+    data = json.load(json_file)["padecimientos"]
 
-# Función para corregir ortografía en el mensaje del usuario
-def corregir_ortografia(mensaje_usuario):
-    spell = SpellChecker(language="es")
-    palabras = mensaje_usuario.split()
-    palabras_corregidas = []
+# Inicializar el contexto
+contexto = ""
 
-    for palabra in palabras:
-        palabra_corregida = spell.correction(palabra)
-        palabras_corregidas.append(palabra_corregida)
-
-    return " ".join(palabras_corregidas)
+# Mensaje de bienvenida
+print("Hola, soy un chatbot. ¿En qué puedo ayudarte? Indica tu problema o hazme una pregunta.")
 
 # Función para detectar padecimientos y mostrar medicamentos
-import spacy
-import difflib
-
-nlp = spacy.load("es_core_news_sm")
-
-def detectar_padecimiento(mensaje_usuario, data):
+def detectar_padecimiento(mensaje_usuario, data, contexto):
     palabras_clave = mensaje_usuario.lower().split()
     mejor_coincidencia = None
     umbral_similitud = 0.6  # Ajusta el umbral según la similitud deseada
@@ -37,8 +20,7 @@ def detectar_padecimiento(mensaje_usuario, data):
         for padecimiento, info in data.items():
             sintomas = info["sintomas"]
             for sintoma in sintomas:
-                similitud = difflib.SequenceMatcher(None, palabra, sintoma).ratio()
-                if similitud >= umbral_similitud:
+                if sintoma in mensaje_usuario:
                     mejor_coincidencia = padecimiento
                     break
 
@@ -49,25 +31,32 @@ def detectar_padecimiento(mensaje_usuario, data):
             break
 
     if mejor_coincidencia:
+        # Utiliza el JSON de datos para generar una respuesta personalizada
         padecimiento_info = data[mejor_coincidencia]
         nombre_padecimiento = mejor_coincidencia
         medicamentos = padecimiento_info["medicamentos"]
-        return f"Tienes {nombre_padecimiento}. Puedes considerar tomar {', '.join(medicamentos)} para aliviar los síntomas."
+
+        # Construye una respuesta personalizada
+        respuesta = f"Basado en tus síntomas, parece que podrías tener {nombre_padecimiento}. Los medicamentos que podrían ayudarte son: {', '.join(medicamentos)}. ¿Necesitas más información o tienes alguna otra pregunta?"
+
+        contexto = mensaje_usuario  # Actualiza el contexto con el mensaje del usuario
+        return respuesta
 
     return None
 
-
 # Ejemplo de interacción
-print("Hola, soy un chatbot. Puedes escribir 'salir' para finalizar la conversación.")
-
 while True:
     mensaje = input("Tú: ")
     if mensaje.lower() == 'salir':
         break
 
-    respuesta = detectar_padecimiento(mensaje, data)
-
-    if respuesta:
-        print("Chatbot:", respuesta)
+    # Responder a saludos
+    if mensaje.lower() in ["hola", "¡hola", "buenos días", "buenas tardes", "buenas noches"]:
+        print("Chatbot: Hola, ¿en qué puedo ayudarte? Indica tu problema o hazme una pregunta.")
     else:
-        print("Chatbot: No entiendo tu pregunta. ¿Puedes ser más específico?")
+        respuesta = detectar_padecimiento(mensaje, data, contexto)
+
+        if respuesta:
+            print("Chatbot:", respuesta)
+        else:
+            print("Chatbot: No entiendo tu pregunta. ¿Puedes ser más específico?")

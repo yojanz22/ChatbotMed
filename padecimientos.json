@@ -1,36 +1,72 @@
 {
   "padecimientos": {
     "dolor de cabeza": {
-      "sintomas": ["dolor de cabeza"],
+      "sintomas": ["dolor de cabeza", "cefalea"],
       "medicamentos": ["paracetamol", "ibuprofeno"]
     },
     "fiebre": {
-      "sintomas": ["fiebre"],
+      "sintomas": ["fiebre", "calentura"],
       "medicamentos": ["paracetamol", "ibuprofeno"]
     },
     "mareo": {
-      "sintomas": ["mareo"],
+      "sintomas": ["mareo", "vértigo"],
       "medicamentos": ["dimenhidrinato"]
     },
     "erupción en la piel": {
-      "sintomas": ["erupción en la piel"],
+      "sintomas": ["erupción en la piel", "rash cutáneo"],
       "medicamentos": ["crema con hidrocortisona"]
     },
-    "dolor en el pecho": {
-      "sintomas": ["dolor en el pecho"],
-      "medicamentos": ["buscar atención médica inmediata"]
-    },
     "dolor de garganta": {
-      "sintomas": ["dolor de garganta"],
+      "sintomas": ["dolor de garganta", "irritación en la garganta"],
       "medicamentos": ["pastillas para la garganta", "ibuprofeno", "acetaminofén"]
     },
     "dolor de estómago": {
-      "sintomas": ["dolor de estómago"],
+      "sintomas": ["dolor de estómago", "malestar abdominal"],
       "medicamentos": ["antiácidos", "medicamentos contra la indigestión"]
     },
     "tos persistente": {
-      "sintomas": ["tos persistente"],
+      "sintomas": ["tos persistente", "tos continua"],
       "medicamentos": ["expectorantes", "pastillas para la tos con dextrometorfano"]
+    },
+    "conjuntivitis": {
+      "sintomas": ["conjuntivitis", "ojo rojo"],
+      "medicamentos": ["gotas para los ojos", "antibióticos según prescripción médica"]
+    },
+    "sinusitis": {
+      "sintomas": ["sinusitis", "congestión nasal"],
+      "medicamentos": ["descongestionantes", "antibióticos según prescripción médica"]
+    },
+    "alergia": {
+      "sintomas": ["alergia", "rinitis alérgica"],
+      "medicamentos": ["antihistamínicos", "corticosteroides nasales"]
+    },
+    "insomnio": {
+      "sintomas": ["insomnio", "dificultad para dormir"],
+      "medicamentos": ["hipnóticos según prescripción médica", "terapia cognitivo-conductual"]
+    },
+    "diarrea": {
+      "sintomas": ["diarrea", "heces sueltas"],
+      "medicamentos": ["loperamida", "solución de rehidratación oral"]
+    },
+    "estreñimiento": {
+      "sintomas": ["estreñimiento", "dificultad para evacuar"],
+      "medicamentos": ["laxantes", "fibra dietética"]
+    },
+    "gripe": {
+      "sintomas": ["gripe", "malestar general"],
+      "medicamentos": ["analgesicos", "antivirales según prescripción médica"]
+    },
+    "hipertensión": {
+      "sintomas": ["hipertensión", "presión arterial alta"],
+      "medicamentos": ["antihipertensivos", "cambios en el estilo de vida"]
+    },
+    "colesterol alto": {
+      "sintomas": ["colesterol alto", "dislipidemia"],
+      "medicamentos": ["estatinas", "cambios en la dieta"]
+    },
+    "diabetes": {
+      "sintomas": ["diabetes", "aumento de la sed"],
+      "medicamentos": ["insulina", "hipoglucemiantes orales"]
     }
   }
 }
