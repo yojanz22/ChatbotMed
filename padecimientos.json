@@ -1,0 +1,36 @@
+{
+  "padecimientos": {
+    "dolor de cabeza": {
+      "sintomas": ["dolor de cabeza"],
+      "medicamentos": ["paracetamol", "ibuprofeno"]
+    },
+    "fiebre": {
+      "sintomas": ["fiebre"],
+      "medicamentos": ["paracetamol", "ibuprofeno"]
+    },
+    "mareo": {
+      "sintomas": ["mareo"],
+      "medicamentos": ["dimenhidrinato"]
+    },
+    "erupción en la piel": {
+      "sintomas": ["erupción en la piel"],
+      "medicamentos": ["crema con hidrocortisona"]
+    },
+    "dolor en el pecho": {
+      "sintomas": ["dolor en el pecho"],
+      "medicamentos": ["buscar atención médica inmediata"]
+    },
+    "dolor de garganta": {
+      "sintomas": ["dolor de garganta"],
+      "medicamentos": ["pastillas para la garganta", "ibuprofeno", "acetaminofén"]
+    },
+    "dolor de estómago": {
+      "sintomas": ["dolor de estómago"],
+      "medicamentos": ["antiácidos", "medicamentos contra la indigestión"]
+    },
+    "tos persistente": {
+      "sintomas": ["tos persistente"],
+      "medicamentos": ["expectorantes", "pastillas para la tos con dextrometorfano"]
+    }
+  }
+}
